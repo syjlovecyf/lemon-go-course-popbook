@@ -35,7 +35,7 @@ npm run still
 | src/BookStage.tsx | 连续开书、弹起、写字与人物动作 |
 | src/PaperArt.tsx | 纸偶、手、教案、棋盘等原创 SVG |
 | src/board.ts | 19 路网格、九星位、棋子坐标 |
-| public/audio | 固定柔和男声旁白、原创配乐及音效 |
+| public/audio | 柠檬老师第二期降噪声线旁白、原创配乐及音效 |
 | scripts/make-score.py | 可重建配乐与纸张、棋子音效，仅需 Python 标准库 |
 | scripts/validate.mjs | 棋盘、资源和依赖锁验证 |
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {interpolate,Easing} from 'remotion';
 import {C,Board,Hand,Label,Notebook,Pencil,Person} from './PaperArt';
+import {researchHeadings} from './research-layout';
 const clamp={extrapolateLeft:'clamp',extrapolateRight:'clamp'} as const;
 const rise=(t:number,start:number,d=.8)=>interpolate(t,[start,start+d],[0,1],{...clamp,easing:Easing.bezier(.16,1,.3,1)});
 const Pop=({x,y,p,children}:{x:number;y:number;p:number;children:React.ReactNode})=><g transform={`translate(${x} ${y}) scale(1 ${Math.max(.001,p)})`} opacity={Math.min(1,p*4)}>{children}</g>;
@@ -47,8 +48,8 @@ export const BookStage=({t}:{t:number})=>{
  {/* Research fold-out */}
  <Pop x={485} y={702} p={research}>
   <g transform="rotate(-5)" filter="url(#shadow)"><path d="M-28 0L-16-225 116-242 126-3Z" fill="#d5c29b"/><path d="M-14-231L126-215 274-239 278 7 126 24-14 0Z" fill={C.paper}/><path d="M126-215V24" stroke="#bba680" strokeWidth="3"/>
-  <text x="16" y="-176" fontSize="33" fill={C.ink}>资料札记</text><text x="151" y="-185" fontSize="24" fill={C.red}>先求准确</text>
-  {[0,1,2,3,4,5].map(i=><g key={i} stroke="#b0a080" strokeWidth="2"><path d={`M6 ${-143+i*23}L105 ${-132+i*23}`}/><path d={`M147 ${-150+i*23}L257 ${-168+i*23}`}/></g>)}
+  {researchHeadings.map(h=><text key={h.text} x={h.x} y={h.y} fontSize={h.fontSize} fill={h.page==='left'?C.ink:C.red}>{h.text}</text>)}
+  {[0,1,2,3,4].map(i=><g key={i} stroke="#b0a080" strokeWidth="2"><path d={`M6 ${-118+i*23}L105 ${-107+i*23}`}/><path d={`M147 ${-112+i*23}L257 ${-130+i*23}`}/></g>)}
   <path d="M28-63L108-54" stroke={C.red} strokeWidth="3"/><path d="M173-37Q208-58 247-53" stroke={C.red} fill="none" strokeWidth="3"/></g>
   <Label x={-43} y={36} text="① 翻资料" angle={-6} width={250}/>
  </Pop>
