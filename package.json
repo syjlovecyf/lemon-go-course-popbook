@@ -1,34 +1,27 @@
 {
   "name": "lemon-course-popbook",
   "version": "1.0.0",
-  "description": "My Remotion video",
-  "repository": {},
-  "license": "UNLICENSED",
-  "engines": {
-    "node": "^20.19.0 || ^22.13.0 || >=24"
-  },
   "private": true,
+  "description": "柠檬说棋 · 一堂好课，是怎样磨出来的",
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "remotion studio --no-open",
+    "check": "tsc --noEmit",
+    "test": "node --experimental-strip-types scripts/validate.mjs",
+    "render": "remotion render src/index.ts LemonCourse out/lemon-course.mp4 --concurrency=2 --crf=18",
+    "still": "remotion still src/index.ts LemonCourse out/cover.png --frame=1020"
+  },
   "dependencies": {
     "@remotion/cli": "4.0.536",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "@remotion/media": "4.0.536",
+    "@remotion/fonts": "4.0.536",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "remotion": "4.0.536"
   },
   "devDependencies": {
-    "@remotion/eslint-config-flat": "4.0.536",
-    "@types/react": "19.2.7",
-    "@types/web": "0.0.166",
-    "eslint": "10.12.0",
-    "prettier": "3.8.1",
+    "@types/react": "19.1.16",
     "typescript": "5.9.3"
-  },
-  "scripts": {
-    "dev": "remotion studio",
-    "build": "remotion bundle",
-    "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
-  },
-  "allowScripts": {
-    "esbuild": false
   }
 }
